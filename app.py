@@ -13,19 +13,18 @@ from langchain.schema import Document
 from youtube_transcript_api import YouTubeTranscriptApi
 from urllib.parse import urlparse, parse_qs
 
-# --- Load API Key ---
+
 load_dotenv()
 groq_api_key = os.getenv("GROQ_API_KEY")
 
-# --- Streamlit UI ---
+
 st.set_page_config(page_title="YT/Web Summarizer", page_icon="🧠")
 st.title("🎥 Youtube and 🌐 Website Summarizer")
 st.markdown("Paste a YouTube link or website URL to get a summarized version of its content.")
 
-# --- Input ---
 generic_url = st.text_input("🔗 Enter YouTube or Website URL")
 
-# --- Prompt ---
+
 prompt_template = """
 Summarize the following content in approximately 300 words:
 
